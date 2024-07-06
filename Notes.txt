@@ -1,0 +1,12 @@
+Here’s a brief explanation of the Makefile:
+
+CXX and CXXFLAGS: These define the compiler and the compiler flags. -Wall enables all compiler warnings, and -Iinc tells the compiler to look for header files in the inc directory.
+SRCDIR and INCDIR: These variables store the paths to the source and include directories.
+SRCFILES and OBJFILES: These use wildcard and substitution patterns to create lists of all the .cpp source files and their corresponding object files (.o).
+EXEC: This is the name of the output executable.
+all: This is the default rule that builds the executable. It depends on the object files.
+$(EXEC): This rule links the object files to create the executable.
+$(SRCDIR)/%.o: This rule compiles each .cpp file into an object file.
+clean: This rule removes the object files and the executable, allowing you to clean up your build directory.
+.PHONY: This declares all and clean as phony targets, meaning they are not actual files.
+To use this Makefile, simply place it in the root directory of your project (where the Database, src, and inc directories are located), and run make from the terminal. This will compile your code and create the executable database_app. To clean up the build files, run make clean.
