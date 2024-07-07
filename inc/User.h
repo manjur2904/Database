@@ -4,13 +4,17 @@
 #include <string>
 #include <unordered_map>
 
-class User{
+class User
+{
     std::string UserName;
     std::string Password;
+    bool CorrectUser = false;
+
 public:
-    User(){}
+    User() {}
     void GetUserName();
     void GetPassword();
     bool Signup();
     bool Login();
+    void ChangePassword(); // Change password for the user
 };
