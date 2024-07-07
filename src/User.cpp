@@ -23,6 +23,7 @@ bool User::Signup()
     {
         UserRecords[this->UserName] = this->Password;
         std::cout << "Congrats!!, You have successfully registered in our Database!!\n";
+        User::showOptionAfterLogin();
         return true;
     }
 }
@@ -35,6 +36,7 @@ bool User::Login()
         {
             std::cout << "User: " << this->UserName << " Login Successfully\n";
             CorrectUser = true;
+            User::showOptionAfterLogin();
             return true;
         }
         else
@@ -76,4 +78,73 @@ void User::ChangePassword()
     {
         std::cout << "UserName: " << username << " Not found!!\n";
     }
+}
+
+void User::showOptionAfterLogin()
+{
+    int option;
+    std::cout << "\nChoose an option:\n";
+
+    std::cout << "1. Show Total Tables Created\n";
+    std::cout << "2. Add New  Table\n";
+    std::cout << "3. Delete table\n";
+    std::cout << "4. Update Table\n";
+    std::cout << "5. Show Table Data\n";
+    std::cout << "6. Show Table Schema\n";
+    std::cout << "\nChoose Option from above\n";
+    std::cin >> option;
+    switch (option)
+    {
+    case 1:
+        User::ShowTotalTables();
+        break;
+    case 2:
+        User::AddNewTable();
+        break;
+    case 3:
+        User::DeleteTable();
+        break;
+    case 4:
+        User::UpdateTable();
+        break;
+    case 5:
+        User::ShowTableData();
+        break;
+    case 6:
+        User::ShowTableSchema();
+        break;
+    default:
+        std::cout << "Invalid Option!!\n";
+        break;
+    }
+}
+
+void User::ShowTotalTables()
+{
+    std::cout << "ShowTotalTables function" << std::endl;
+}
+
+void User::AddNewTable()
+{
+    std::cout << "AddNewTable function" << std::endl;
+}
+
+void User::DeleteTable()
+{
+    std::cout << "DeleteTable function" << std::endl;
+}
+
+void User::UpdateTable()
+{
+    std::cout << "UpdateTable function" << std::endl;
+}
+
+void User::ShowTableData()
+{
+    std::cout << "ShowTableData function" << std::endl;
+}
+
+void User::ShowTableSchema()
+{
+    std::cout << "ShowTableSchema function" << std::endl;
 }

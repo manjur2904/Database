@@ -16,5 +16,12 @@ public:
     void GetPassword();
     bool Signup();
     bool Login();
-    void ChangePassword(); // Change password for the user
+    void ChangePassword();       // Change password for the user
+    void showOptionAfterLogin(); // Show option after login
+    void ShowTotalTables();      // Show total tables
+    void AddNewTable();          // Add new table
+    void DeleteTable();          // Delete table
+    void UpdateTable();          // Update  table
+    void ShowTableData();        // Show table data
+    void ShowTableSchema();      // Show table schema
 };
