@@ -91,7 +91,7 @@ void User::showOptionAfterLogin()
     std::cout << "4. Update Table\n";
     std::cout << "5. Show Table Data\n";
     std::cout << "6. Show Table Schema\n";
-    std::cout << "\nChoose Option from above\n";
+    std::cout << "\nChoose Option from above: ";
     std::cin >> option;
     switch (option)
     {
@@ -121,12 +121,32 @@ void User::showOptionAfterLogin()
 
 void User::ShowTotalTables()
 {
-    std::cout << "ShowTotalTables function" << std::endl;
+    std::cout << "\nNumber of tables created: " << noOfTable << std::endl;
+    if (noOfTable > 0)
+    {
+        std::cout << "Tables created are: " << std::endl;
+        int cntTable = 0;
+        for (auto it : UserTable)
+        {
+            cntTable++;
+            Pair UsernameTablename = it.first;
+            std::cout << cntTable << ". " << UsernameTablename.second << std::endl;
+        }
+    }
+    User::showOptionAfterLogin();
 }
 
 void User::AddNewTable()
 {
-    std::cout << "AddNewTable function" << std::endl;
+    // std::cout << "\n\nEnter the name of the table you want to create: ";
+    // std::string tableName;
+    // std::cin >> tableName;
+    // Matrix table(10, std::vector<std::string>(10, ""));
+    // std::cout << UserName << " " << tableName << std::endl;
+    // std::cout << "Initialized a 10x10 table with size: " << table.size() << "x" << table[0].size() << "\n";
+    // Pair key = std::make_pair(this->UserName, tableName);
+    // UserTable[key] = table;
+    // User::showOptionAfterLogin();
 }
 
 void User::DeleteTable()
