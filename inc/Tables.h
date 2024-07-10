@@ -33,7 +33,7 @@ public:
     void ShowTotalTables();      // Show total tables
     void AddNewTable();          // Add new table
     void DeleteTable();          // Delete table
-    void UpdateTable();          // Update  table
+    void UpdateTableName();      // Update  table
     void ShowTableData();        // Show table data
     void ShowTableSchema();      // Show table schema
 };

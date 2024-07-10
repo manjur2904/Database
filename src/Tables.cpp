@@ -13,7 +13,7 @@ void Tables::showOptionAfterLogin()
     std::cout << "1. Show Total Tables Created\n";
     std::cout << "2. Add New  Table\n";
     std::cout << "3. Delete table\n";
-    std::cout << "4. Update Table\n";
+    std::cout << "4. Update Table Name\n";
     std::cout << "5. Show Table Data\n";
     std::cout << "6. Show Table Schema\n";
     std::cout << "\nChoose Option from above: ";
@@ -30,7 +30,7 @@ void Tables::showOptionAfterLogin()
         Tables::DeleteTable();
         break;
     case 4:
-        Tables::UpdateTable();
+        Tables::UpdateTableName();
         break;
     case 5:
         Tables::ShowTableData();
@@ -75,12 +75,45 @@ void Tables::AddNewTable()
 
 void Tables::DeleteTable()
 {
-    std::cout << "DeleteTable function" << std::endl;
+    std::cout << "Enter the table name which you want to delete: ";
+    std::string tableName;
+    std::cin >> tableName;
+    Pair key = std::make_pair(this->OwnerUsername, tableName);
+    if (UserTable.find(key) == UserTable.end())
+    {
+        std::cout << "Table does not exist!!\n";
+    }
+    else
+    {
+        UserTable.erase(key);
+        noOfTable--;
+        std::cout << "Table deleted successfully!!\n";
+    }
+    Tables::showOptionAfterLogin();
 }
 
-void Tables::UpdateTable()
+void Tables::UpdateTableName()
 {
-    std::cout << "UpdateTable function" << std::endl;
+    std::cout << "Enter the table name which you want to update: ";
+    std::string tableName;
+    std::cin >> tableName;
+    Pair key = std::make_pair(this->OwnerUsername, tableName);
+    if (UserTable.find(key) == UserTable.end())
+    {
+        std::cout << "Table does not exist!!\n";
+    }
+    else
+    {
+        std::cout << "Enter the new table name: ";
+        std::string newTableName;
+        std::cin >> newTableName;
+        Pair newKey = std::make_pair(this->OwnerUsername, newTableName);
+        Matrix table = UserTable[key];
+        UserTable.erase(key);
+        UserTable[newKey] = table;
+        std::cout << "Table name is successfully updated!!" << std::endl;
+    }
+    this->showOptionAfterLogin();
 }
 
 void Tables::ShowTableData()
