@@ -24,6 +24,7 @@ class Tables
 {
     std::string OwnerUsername;
     int noOfTable = 0;
+    // //{user,TableName}->vector[][]   vector[0][j]-{columnName1,columnName2,...}  vector[1 to i][0 to vector[0].size()] -{fieldValue1, fieldValue2, fieldValue3,....}
     UserTableVsDetail UserTable;
 
 public:
