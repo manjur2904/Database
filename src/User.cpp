@@ -1,23 +1,22 @@
 #include <User.h>
-#include <Common.h>
 #include <Tables.h>
 
 void User::GetUserName()
 {
-    std::cout << "Enter UserName: ";
-    std::cin >> this->UserName;
+    std::cout<<"Enter UserName: ";
+    std::cin>>this->UserName;
 }
 void User::GetPassword()
 {
-    std::cout << "Please enter your Password: ";
-    std::cin >> this->Password;
+    std::cout<<"Please enter your Password: ";
+    std::cin>>this->Password;
 }
 
-bool User::Signup()
+bool User::Signup(std::unordered_map<std::string, std::string> &UserRecords)
 {
-    if (UserRecords.find(this->UserName) != UserRecords.end())
+    if(UserRecords.find(this->UserName) != UserRecords.end())
     {
-        std::cout << "UserName: " << this->UserName << " already exist.\n";
+        std::cout<<"UserName: "<<this->UserName<<" already exist.\n";
         return false;
     }
     else
@@ -30,11 +29,11 @@ bool User::Signup()
     }
 }
 
-bool User::Login()
+bool User::Login(std::unordered_map<std::string, std::string> &UserRecords)
 {
-    if (UserRecords.find(this->UserName) != UserRecords.end())
+    if(UserRecords.find(this->UserName) != UserRecords.end())
     {
-        if (UserRecords[this->UserName] == this->Password)
+        if(UserRecords[this->UserName] == this->Password)
         {
             std::cout << "User: " << this->UserName << " Login Successfully\n";
             CorrectUser = true;
@@ -55,7 +54,7 @@ bool User::Login()
     }
 }
 
-void User::ChangePassword()
+void User::ChangePassword(std::unordered_map<std::string, std::string>& UserRecords)
 {
     std::string username = "";
     std::string password = "";

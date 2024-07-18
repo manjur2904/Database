@@ -5,17 +5,16 @@
 #include <unordered_map>
 #include <vector>
 
-class User
-{
+class User{
     std::string UserName;
     std::string Password;
     bool CorrectUser = false;
 
 public:
-    User() {}
+    User(){}
     void GetUserName();
     void GetPassword();
-    bool Signup();
-    bool Login();
-    void ChangePassword(); // Change password for the user
+    bool Signup(std::unordered_map<std::string, std::string>& UserRecords);
+    bool Login(std::unordered_map<std::string, std::string>& UserRecords);
+    void ChangePassword(std::unordered_map<std::string, std::string>& UserRecords); // Change password for the user
 };

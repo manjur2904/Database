@@ -1,21 +1,26 @@
+#include<Common.h>
 #include <User.h>
-
+std::unordered_map<std::string, std::string> UserRecords;
 int main()
 {
-    std::cout << "Are you an existing user?\n";
-    std::cout << "If Yes, type 1. Either type 0 to Signup\n";
+    std::cout<<"Are you an exixting user?\n";
+    std::cout<<"If Yes, type 1. Either type 0 to Signup: ";
     short userType; // will use enum later
-    std::cin >> userType;
-    User *user = new User();
+    std::cin>>userType;
+
+    ReadUserInfo();
+
+    User* user = new User();
     user->GetUserName();
     user->GetPassword();
-    if (userType == 1) // Login
+    if(userType == 1) // Login
     {
-        user->Login();
+        user->Login(UserRecords);
     }
-    else if (userType == 0) // SignUp
+    else if(userType == 0) // SignUp
     {
-        user->Signup();
+        user->Signup(UserRecords);
+        SaveUserInfo();
     }
     delete user;
 }
