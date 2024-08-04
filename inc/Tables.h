@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include <vector>
 #include <utility> // for pair
-
+#include <TableOperation.h>
 struct pair_hash
 {
     template <class T1, class T2>
@@ -28,7 +28,7 @@ class Tables
     UserTableVsDetail UserTable;
 
 public:
-    Tables(){};
+    Tables() {};
     Tables(std::string);
     void showOptionAfterLogin(); // Show option after login
     void ShowTotalTables();      // Show total tables
@@ -37,4 +37,5 @@ public:
     void UpdateTableName();      // Update  table
     void ShowTableData();        // Show table data
     void ShowTableSchema();      // Show table schema
+    void SelectTable();          // Slect the interested table
 };

@@ -1,0 +1,2 @@
+g++ -Wall -Iinc -o database_app src/User.o src/Database.o
+Makefile:21: recipe for target 'database_app' failed

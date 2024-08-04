@@ -16,6 +16,7 @@ void Tables::showOptionAfterLogin()
     std::cout << "4. Update Table Name\n";
     std::cout << "5. Show Table Data\n";
     std::cout << "6. Show Table Schema\n";
+    std::cout << "7. Choose Table\n";
     std::cout << "\nChoose Option from above: ";
     std::cin >> option;
     switch (option)
@@ -38,9 +39,30 @@ void Tables::showOptionAfterLogin()
     case 6:
         Tables::ShowTableSchema();
         break;
+    case 7:
+        Tables::SelectTable();
+        break;
     default:
         std::cout << "Invalid Option!!\n";
         break;
+    }
+}
+
+void Tables::SelectTable()
+{
+    std::cout << "\n Enter the Interested Table Name: ";
+    std::string tableName;
+    std::cin >> tableName;
+    if (UserTable.find(std::make_pair(OwnerUsername, tableName)) != UserTable.end())
+    {
+        std::cout << "Yes We found it!";
+        TableOperation *tblop = new TableOperation(UserTable[std::make_pair(OwnerUsername, tableName)]);
+        tblop->ShowTableLevelOperation();
+    }
+    else
+    {
+        std::cout << " No Table exits with required name";
+        Tables::showOptionAfterLogin();
     }
 }
 
