@@ -2,7 +2,7 @@
 CXX = g++
 
 # Compiler flags
-CXXFLAGS = -Wall -Iinc
+CXXFLAGS = -Wall -Iinc -std=c++17
 
 # Source and header files
 SRCDIR = src
@@ -27,6 +27,7 @@ $(SRCDIR)/%.o: $(SRCDIR)/%.cpp $(INCDIR)/%.h
 # Clean up build files
 clean:
 	rm -f $(SRCDIR)/*.o $(EXEC)
+	rm -f log/*
 
 # Phony targets
 .PHONY: all clean

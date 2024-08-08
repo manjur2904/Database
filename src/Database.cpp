@@ -3,7 +3,7 @@
 std::unordered_map<std::string, std::string> UserRecords;
 int main()
 {
-    short userType; // will use enum later
+    short userType = -1; // will use enum later
     while (userType != 0 && userType != 1)
     {
         std::cout << "Are you an existing user?\n";
