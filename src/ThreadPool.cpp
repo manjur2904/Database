@@ -1,7 +1,7 @@
 #include "ThreadPool.h"
 #include <sstream>
 
-// const std::string LOG_DIR = "log/";
+const std::string LOG_DIR = "log/";
 
 ThreadPool::ThreadPool(size_t numThreads) : stop(false)
 {
